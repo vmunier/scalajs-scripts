@@ -10,6 +10,8 @@ homepage := Some(url("https://github.com/vmunier/play-scalajs-scripts"))
 
 crossScalaVersions := Seq("2.10.4", "2.11.2")
 
+unmanagedSourceDirectories in Compile += target.value / ("scala-" + scalaBinaryVersion.value) / "twirl" / "main"
+
 // PlayScala needs to be enabled, SbtTwirl can't be used alone because play.api.Play is needed
 enablePlugins(PlayScala)
 
