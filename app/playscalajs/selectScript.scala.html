@@ -1,9 +1,13 @@
-@(basePath: String, projectName: String)
+@(basePath: String, projectName: String, loadDependencies:Boolean = false)
+
+@if(loadDependencies){
+    <script src="@{s"$basePath/${projectName.toLowerCase}-jsdeps.js"}" type="text/javascript"></script>
+}
 
 @import play.api.Play
-
 @if(Play.isProd(Play.current)) {
 <script src="@{s"$basePath/${projectName.toLowerCase}-opt.js"}" type="text/javascript"></script>
 } else {
 <script src="@{s"$basePath/${projectName.toLowerCase}-fastopt.js"}" type="text/javascript"></script>
 }
+

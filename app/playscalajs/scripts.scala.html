@@ -1,4 +1,4 @@
-@(basePath: String, projectName: String)
+@(basePath: String, projectName: String, loadDependencies:Boolean = false)
 
-@selectScript(basePath, projectName)
+@selectScript(basePath, projectName, loadDependencies)
 @launcher(basePath, projectName)
