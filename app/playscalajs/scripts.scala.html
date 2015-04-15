@@ -1,4 +1,5 @@
-@(basePath: String, projectName: String)
+@(projectName: String, assetsPath: String = "/assets", resourcesPath: String = "/public")
 
-@selectScript(basePath, projectName)
-@launcher(basePath, projectName)
+@selectScript(projectName, assetsPath)
+@launcher(projectName, assetsPath)
+@jsdeps(projectName, assetsPath, resourcesPath)
