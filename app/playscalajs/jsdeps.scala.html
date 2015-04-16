@@ -1,0 +1,10 @@
+@(projectName: String, assetsPath: String = "/assets", resourcesPath: String = "/public")
+
+@import play.api.Play.resource
+@import play.api.Play.current
+
+@defining(s"${projectName.toLowerCase}-jsdeps.js") { jsdeps =>
+  @if(resource(s"$resourcesPath/$jsdeps").isDefined) {
+<script src="@{s"$assetsPath/$jsdeps"}" type="text/javascript"></script>
+  }
+}
