@@ -3,8 +3,14 @@
 @import play.api.Play.resource
 @import play.api.Play.current
 
-@defining(s"${projectName.toLowerCase}-jsdeps.js") { jsdeps =>
-  @if(resource(s"$resourcesPath/$jsdeps").isDefined) {
+@defining(s"${projectName.toLowerCase}-jsdeps") { jsdeps =>
+  @if(resource(s"$resourcesPath/${jsdeps}.min.js").isDefined) {
+    @jsdepsScript(s"${jsdeps}.min.js")
+  } else { @if(resource(s"$resourcesPath/${jsdeps}.js").isDefined) {
+    @jsdepsScript(s"${jsdeps}.js")
+  }}
+}
+
+@jsdepsScript(jsdeps: String) = {
 <script src="@{s"$assetsPath/$jsdeps"}" type="text/javascript"></script>
-  }
 }
