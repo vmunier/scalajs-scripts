@@ -8,10 +8,12 @@ organization := "com.vmunier"
 
 homepage := Some(url("https://github.com/vmunier/play-scalajs-scripts"))
 
-crossScalaVersions := Seq("2.10.4", "2.11.2")
+crossScalaVersions := Seq("2.10.4", "2.11.6")
 
-// PlayScala needs to be enabled, SbtTwirl can't be used alone because play.api.Play is needed
-enablePlugins(PlayScala)
+enablePlugins(SbtTwirl)
+
+// play.api.Play is needed
+libraryDependencies += "com.typesafe.play" %% "play" % "2.4.0"
 
 licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))
 

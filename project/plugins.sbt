@@ -2,7 +2,7 @@ resolvers += "Typesafe repository" at "https://repo.typesafe.com/typesafe/releas
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-twirl" % "1.1.1")
 
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3.0")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.4.0")
 
 resolvers += Resolver.url(
   "bintray-sbt-plugin-releases",
