@@ -1,12 +1,14 @@
-@(projectName: String, assets: String => String = fileName => s"/assets/$fileName", resourcesPath: String = "/public")
+@(projectName: String,
+  assets:      String => String = fileName => s"/assets/$fileName",
+  resources:   String => String = fileName => s"/public/$fileName")
 
 @import play.api.Play.resource
 @import play.api.Play.current
 
 @defining(s"${projectName.toLowerCase}-jsdeps") { jsdeps =>
-  @if(resource(s"$resourcesPath/${jsdeps}.min.js").isDefined) {
+  @if(resource(resources(s"${jsdeps}.min.js")).isDefined) {
     @jsdepsScript(s"${jsdeps}.min.js")
-  } else { @if(resource(s"$resourcesPath/${jsdeps}.js").isDefined) {
+  } else { @if(resource(resources(s"${jsdeps}.js")).isDefined) {
     @jsdepsScript(s"${jsdeps}.js")
   }}
 }
