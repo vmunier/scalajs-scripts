@@ -1,5 +1,5 @@
-@(projectName: String, assetsPath: String = "/assets", resourcesPath: String = "/public")
+@(projectName: String, assets: String => String = fileName => s"/assets/$fileName", resourcesPath: String = "/public")
 
-@jsdeps(projectName, assetsPath, resourcesPath)
-@selectScript(projectName, assetsPath)
-@launcher(projectName, assetsPath)
+@jsdeps(projectName, assets, resourcesPath)
+@selectScript(projectName, assets)
+@launcher(projectName, assets)

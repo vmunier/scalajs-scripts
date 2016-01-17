@@ -1,4 +1,4 @@
-@(projectName: String, assetsPath: String = "/assets", resourcesPath: String = "/public")
+@(projectName: String, assets: String => String = fileName => s"/assets/$fileName", resourcesPath: String = "/public")
 
 @import play.api.Play.resource
 @import play.api.Play.current
@@ -12,5 +12,5 @@
 }
 
 @jsdepsScript(jsdeps: String) = {
-<script src="@{s"$assetsPath/$jsdeps"}" type="text/javascript"></script>
+<script src="@assets(jsdeps)" type="text/javascript"></script>
 }

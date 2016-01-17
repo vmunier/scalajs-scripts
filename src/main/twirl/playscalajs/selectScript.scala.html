@@ -1,9 +1,9 @@
-@(projectName: String, assetsPath: String = "/assets")
+@(projectName: String, assets: String => String = fileName => s"/assets/$fileName")
 
 @import play.api.Play
 
 @if(Play.isProd(Play.current)) {
-<script src="@{s"$assetsPath/${projectName.toLowerCase}-opt.js"}" type="text/javascript"></script>
+<script src="@assets(projectName.toLowerCase+"-opt.js")" type="text/javascript"></script>
 } else {
-<script src="@{s"$assetsPath/${projectName.toLowerCase}-fastopt.js"}" type="text/javascript"></script>
+<script src="@assets(projectName.toLowerCase+"-fastopt.js")" type="text/javascript"></script>
 }
