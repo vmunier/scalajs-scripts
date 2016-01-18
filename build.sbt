@@ -2,7 +2,7 @@ import bintray.Keys._
 
 name := "play-scalajs-scripts"
 
-version := "0.4.0"
+version := "0.4.1-SNAPSHOT"
 
 organization := "com.vmunier"
 
