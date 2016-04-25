@@ -12,7 +12,7 @@ scalaVersion := "2.11.8"
 
 enablePlugins(SbtTwirl)
 
-// play.api.Play is needed
+// play.api.Environment is needed
 libraryDependencies += "com.typesafe.play" %% "play" % "2.5.2"
 
 licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))

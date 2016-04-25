@@ -1,14 +1,12 @@
 @(projectName: String,
   assets:      String => String = fileName => s"/assets/$fileName",
-  resources:   String => String = fileName => s"/public/$fileName")
-
-@import play.api.Play.resource
-@import play.api.Play.current
+  resources:   String => String = fileName => s"/public/$fileName"
+)(implicit environment: play.api.Environment)
 
 @defining(s"${projectName.toLowerCase}-jsdeps") { jsdeps =>
-  @if(resource(resources(s"${jsdeps}.min.js")).isDefined) {
+  @if(environment.resource(resources(s"${jsdeps}.min.js")).isDefined) {
     @jsdepsScript(s"${jsdeps}.min.js")
-  } else { @if(resource(resources(s"${jsdeps}.js")).isDefined) {
+  } else { @if(environment.resource(resources(s"${jsdeps}.js")).isDefined) {
     @jsdepsScript(s"${jsdeps}.js")
   }}
 }

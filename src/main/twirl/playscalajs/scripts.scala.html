@@ -1,7 +1,10 @@
+@import play.api.{Environment, Mode}
+
 @(projectName: String,
   assets:      String => String = fileName => s"/assets/$fileName",
-  resources:   String => String = fileName => s"/public/$fileName")
+  resources:   String => String = fileName => s"/public/$fileName"
+)(implicit environment: Environment)
 
 @jsdeps(projectName, assets, resources)
-@selectScript(projectName, assets)
+@selectScript(projectName, environment.mode == Mode.Prod, assets)
 @launcher(projectName, assets)

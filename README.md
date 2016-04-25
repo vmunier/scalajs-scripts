@@ -9,7 +9,7 @@ Small library which provides a few Twirl Play templates to link Scala.js output 
 
 - `scripts.scala.html` includes the three other templates.
 
-Classic usage:
+Classic usage when an implicit Play [Environment](https://www.playframework.com/documentation/2.5.2/api/scala/index.html#play.api.Environment) is available:
 ```
 @playscalajs.html.scripts(projectName = "client")
 ```
