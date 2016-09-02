@@ -1,7 +1,0 @@
-@(projectName: String, isProd: Boolean, assets: String => String = fileName => s"/assets/$fileName")
-
-@if(isProd) {
-<script src="@assets(projectName.toLowerCase+"-opt.js")" type="text/javascript"></script>
-} else {
-<script src="@assets(projectName.toLowerCase+"-fastopt.js")" type="text/javascript"></script>
-}

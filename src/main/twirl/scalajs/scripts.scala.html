@@ -1,0 +1,8 @@
+@(projectName:    String,
+  assets:         String => String,
+  resourceExists: String => Boolean
+)
+
+@jsdeps(projectName, assets, resourceExists)
+@selectScript(projectName, assets, resourceExists)
+@launcher(projectName, assets, resourceExists)

@@ -1,0 +1,10 @@
+@(projectName:    String,
+  assets:         String => String,
+  resourceExists: String => Boolean
+)
+
+@defining(s"${projectName.toLowerCase}-launcher.js") { launcher =>
+  @if(resourceExists(launcher)) {
+    @jsScript(assets(launcher))
+  }
+}
