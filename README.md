@@ -7,6 +7,13 @@ Small library which provides a few Twirl templates to link Scala.js output scrip
 
 *Since the Play dependency was dropped, the project has been renamed from `play-scalajs-scripts` to `scalajs-scripts`.*
 
+## Setup
+
+Add the library to `build.sbt`:
+```
+libraryDependencies += "com.vmunier" %% "scalajs-scripts" % "1.0.0"
+```
+
 ## Available Twirl Templates
 
 There are four Twirl templates: `scripts.scala.html`, `selectScript.scala.html`, `jsdeps.scala.html`, `launcher.scala.html`.
