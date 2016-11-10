@@ -6,9 +6,9 @@ organization := "com.vmunier"
 
 homepage := Some(url("https://github.com/vmunier/scalajs-scripts"))
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.0"
 
-crossScalaVersions := Seq("2.10.6", scalaVersion.value)
+crossScalaVersions := Seq("2.10.6", "2.11.8", scalaVersion.value)
 
 enablePlugins(SbtTwirl)
 
