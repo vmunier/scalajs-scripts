@@ -14,6 +14,16 @@ enablePlugins(SbtTwirl)
 
 licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))
 
+scalacOptions ++= Seq(
+  "-encoding", "utf8",
+  "-deprecation", "-feature", "-unchecked", "-Xlint",
+  "-Xfuture",
+  "-Yno-adapted-args",
+  "-Ywarn-dead-code",
+  "-Ywarn-numeric-widen",
+  "-Ywarn-value-discard"
+)
+
 pomExtra := (
   <scm>
     <url>git@github.com:vmunier/scalajs-scripts.git</url>
