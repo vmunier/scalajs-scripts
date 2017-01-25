@@ -65,6 +65,16 @@ Usage for the Play Framework with [fingerprinting for public assets](https://www
   name => getClass.getResource(s"/public/$name") != null)
 ```
 
+Additional HTML attributes can be added to the generated `<script>` tags:
+```
+@scalajs.html.scripts(
+  projectName = "client",
+  name => s"/assets/$name",
+  name => getClass.getResource(s"/public/$name") != null,
+  Html("""charset="UTF-8" defer""")
+)
+```
+
 Note:
 The Twirl templates require a `resourceExists` function because the application classpath may not be accessible from the library.
 Play for instance, puts libraries in a parent classpath of the application, meaning they can't see the classes provided by the application.

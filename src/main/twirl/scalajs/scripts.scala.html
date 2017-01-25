@@ -1,8 +1,9 @@
 @(projectName:    String,
   assets:         String => String,
-  resourceExists: String => Boolean
+  resourceExists: String => Boolean,
+  htmlAttributes: Html = Html("")
 )
 
-@jsdeps(projectName, assets, resourceExists)
-@selectScript(projectName, assets, resourceExists)
-@launcher(projectName, assets, resourceExists)
+@jsdeps(projectName, assets, resourceExists, htmlAttributes)
+@selectScript(projectName, assets, resourceExists, htmlAttributes)
+@launcher(projectName, assets, resourceExists, htmlAttributes)

@@ -1,8 +1,9 @@
 @(projectName:    String,
   assets:         String => String,
-  resourceExists: String => Boolean
+  resourceExists: String => Boolean,
+  htmlAttributes: Html = Html("")
 )
 
 @defining(s"${projectName.toLowerCase}-jsdeps") { jsdeps =>
-  @Seq(s"${jsdeps}.min.js", s"${jsdeps}.js").find(resourceExists).map(name => jsScript(assets(name)))
+  @Seq(s"${jsdeps}.min.js", s"${jsdeps}.js").find(resourceExists).map(name => jsScript(assets(name), htmlAttributes))
 }
