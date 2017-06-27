@@ -9,7 +9,7 @@ Small library which provides a few Twirl templates to link Scala.js output scrip
 
 Add the library to `build.sbt`:
 ```
-libraryDependencies += "com.vmunier" %% "scalajs-scripts" % "1.1.0"
+libraryDependencies += "com.vmunier" %% "scalajs-scripts" % "1.1.1"
 ```
 
 ## Available Twirl Templates
