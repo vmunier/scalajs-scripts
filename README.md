@@ -12,12 +12,6 @@ Add the library to `build.sbt`:
 libraryDependencies += "com.vmunier" %% "scalajs-scripts" % "1.1.0"
 ```
 
-For Play framework users, use the `1.0.0` version:
-```
-libraryDependencies += "com.vmunier" %% "scalajs-scripts" % "1.0.0"
-```
-The reason is that the Play framework still uses Twirl `v1.2.0` whereas scalajs-scripts `v1.1.0` uses Twirl `v1.3.0`, which contains breaking changes.
-
 ## Available Twirl Templates
 
 There are four Twirl templates: `scripts.scala.html`, `selectScript.scala.html`, `jsdeps.scala.html`, `launcher.scala.html`.
