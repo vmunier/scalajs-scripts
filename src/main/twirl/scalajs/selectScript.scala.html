@@ -5,5 +5,5 @@
 )
 
 @defining(s"${projectName.toLowerCase}") { name =>
-  @Seq(s"$name-opt.js", s"$name-fastopt.js").find(resourceExists).map(name => jsScript(assets(name), htmlAttributes))
+  @Seq(s"$name-opt.js", s"$name-fastopt.js",s"$name-opt-bundle.js",s"$name-fastopt-bundle.js").find(resourceExists).map(name => jsScript(assets(name), htmlAttributes))
 }
