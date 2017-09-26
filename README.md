@@ -3,7 +3,9 @@
 [![Latest Version](https://maven-badges.herokuapp.com/maven-central/com.vmunier/scalajs-scripts_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.vmunier/scalajs-scripts_2.11)
 [![License](http://img.shields.io/:license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
-Small library which provides a few Twirl templates to link Scala.js output scripts into a HTML page.
+Small library which provides a way to link Scala.js output to HTML templating engines, such as
+[twirl](https://github.com/playframework/twirl), [scalatags](https://github.com/lihaoyi/scalatags) or even
+standard scala string interpolation. 
 
 ## Setup
 
@@ -12,7 +14,9 @@ Add the library to `build.sbt`:
 libraryDependencies += "com.vmunier" %% "scalajs-scripts" % "1.1.1"
 ```
 
-## Available Twirl Templates
+## Integration with Twirl
+
+### Available Twirl Templates
 
 There are four Twirl templates: `scripts.scala.html`, `selectScript.scala.html`, `jsdeps.scala.html`, `launcher.scala.html`.
 
@@ -21,7 +25,7 @@ There are four Twirl templates: `scripts.scala.html`, `selectScript.scala.html`,
 - `jsdeps.scala.html` includes the javascript dependencies if they exist.
 - `launcher.scala.html` includes the Scala.js launcher if it exists.
 
-## Usage
+### Usage
 
 The templates have the same parameters, and can be called similarly. The parameters are described below:
 ```
@@ -74,3 +78,33 @@ The Twirl templates require a `resourceExists` function because the application 
 Play for instance, puts libraries in a parent classpath of the application, meaning they can't see the classes provided by the application.
 Since the classloaders are split, libraries can never make any assumptions about their classloader with regards to the applications classloader.
 More info about Play classloader can be found in [this issue](https://github.com/playframework/playframework/issues/2847).
+
+## Integration with scalatags
+
+Since ScalaTags is pure Scala code, using scalajs-scripts with ScalaTags is as simple as using one of the
+scala-tags functions directly inside a html, tag. For example for a basic template which renders a basic
+index.html file when using akka-http/spray would look like the following
+
+```scala
+import scalatags.Text.all._
+
+object Application {
+  def index(title: String): Frag = {
+    Seq(
+      scalatags.Text.tags.html(
+        head(
+          scalatags.Text.tags2.title(title)
+        ),
+        body(
+          raw(scalajs.html
+            .scripts("client", name => s"../../../assets/$name", name => getClass.getResource(s"/public/$name") != null)
+            .body)
+        )
+      )
+    )
+  }
+}
+```
+
+The `raw` function in ScalaTags allows you to embed raw HTML in the tag and calling the `.body` on the `scripts` 
+method outputs this raw html
