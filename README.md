@@ -5,7 +5,7 @@
 
 Small library which provides a way to link Scala.js output to HTML templating engines, such as
 [twirl](https://github.com/playframework/twirl), [scalatags](https://github.com/lihaoyi/scalatags) or even
-standard scala string interpolation. 
+standard scala string interpolation.
 
 ## Setup
 
@@ -79,32 +79,29 @@ Play for instance, puts libraries in a parent classpath of the application, mean
 Since the classloaders are split, libraries can never make any assumptions about their classloader with regards to the applications classloader.
 More info about Play classloader can be found in [this issue](https://github.com/playframework/playframework/issues/2847).
 
-## Integration with scalatags
+## Integration with ScalaTags
 
-Since ScalaTags is pure Scala code, using scalajs-scripts with ScalaTags is as simple as using one of the
-scala-tags functions directly inside a html, tag. For example for a basic template which renders a basic
-index.html file when using akka-http/spray would look like the following
+Integration with ScalaTags is as simple as calling one of the scalajs-scripts function inside a tag.
+Here is a template showing how to use `scalajs.html.scripts` to render a basic index.html:
 
 ```scala
+import scalatags.Text._
 import scalatags.Text.all._
 
 object Application {
-  def index(title: String): Frag = {
-    Seq(
-      scalatags.Text.tags.html(
-        head(
-          scalatags.Text.tags2.title(title)
-        ),
-        body(
-          raw(scalajs.html
-            .scripts("client", name => s"../../../assets/$name", name => getClass.getResource(s"/public/$name") != null)
-            .body)
-        )
+  def index(title: String): TypedTag[String] = {
+    scalatags.Text.tags.html(
+      head(
+        scalatags.Text.tags2.title(title)
+      ),
+      body(
+        raw(scalajs.html
+          .scripts("client", name => s"/assets/$name", name => getClass.getResource(s"/public/$name") != null)
+          .body)
       )
     )
   }
 }
 ```
 
-The `raw` function in ScalaTags allows you to embed raw HTML in the tag and calling the `.body` on the `scripts` 
-method outputs this raw html
+The `raw` function in ScalaTags allows you to embed raw HTML in the tag and calling `.body` on the `scripts` method outputs the raw html.
