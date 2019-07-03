@@ -6,9 +6,9 @@ organization := "com.vmunier"
 
 homepage := Some(url("https://github.com/vmunier/scalajs-scripts"))
 
-scalaVersion := "2.12.5"
+scalaVersion := "2.13.0"
 
-crossScalaVersions := Seq("2.10.7", "2.11.12", scalaVersion.value)
+crossScalaVersions := Seq("2.10.7", "2.11.12", "2.12.8", scalaVersion.value)
 
 enablePlugins(SbtTwirl)
 
@@ -18,7 +18,6 @@ scalacOptions ++= Seq(
   "-encoding", "utf8",
   "-deprecation", "-feature", "-unchecked", "-Xlint",
   "-Xfuture",
-  "-Yno-adapted-args",
   "-Ywarn-dead-code",
   "-Ywarn-numeric-widen",
   "-Ywarn-value-discard"
