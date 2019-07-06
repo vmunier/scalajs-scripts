@@ -1,6 +1,6 @@
 name := "scalajs-scripts"
 
-version := "1.1.3"
+version := "1.1.4-SNAPSHOT"
 
 organization := "com.vmunier"
 
