@@ -105,3 +105,9 @@ object Application {
 ```
 
 The `raw` function in ScalaTags allows you to embed raw HTML in the tag and calling `.body` on the `scripts` method outputs the raw html.
+
+## Publish a new version of the library
+
+```
+$ sbt +publishSigned
+```
