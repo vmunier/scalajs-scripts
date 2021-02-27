@@ -8,7 +8,7 @@ homepage := Some(url("https://github.com/vmunier/scalajs-scripts"))
 
 scalaVersion := "2.13.2"
 
-crossScalaVersions := Seq("2.12.11", scalaVersion.value)
+crossScalaVersions := Seq("2.12.13", scalaVersion.value)
 
 enablePlugins(SbtTwirl)
 
