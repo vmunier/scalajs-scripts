@@ -7,6 +7,13 @@ Small library which provides a way to link Scala.js output to HTML templating en
 [twirl](https://github.com/playframework/twirl), [scalatags](https://github.com/lihaoyi/scalatags) or even
 standard scala string interpolation.
 
+
+## When using sbt-web-scalajs `v1.2.0` or higher
+
+*scalajs-scripts is deprecated when using sbt-web-scalajs `v1.2.0` or higher. The recommended approach is to create a template helper in the project itself. Example of a `findScript.scala.html` template in [Play](https://github.com/vmunier/play-scalajs.g8/blob/856e70e60f518db27cd8db524abf0bed1d0fc59d/src/main/g8/server/app/views/findScript.scala.html) and [Akka HTTP](https://github.com/vmunier/akka-http-scalajs.g8/blob/961276766e4c69caf9ad6aee9a14b283cc2bc946/src/main/g8/server/src/main/twirl/%24package%24/findScript.scala.html).*
+
+## When using sbt-web-scalajs `v1.1.0` or lower
+
 ## Setup
 
 Add the library to `build.sbt`:
