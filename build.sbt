@@ -6,7 +6,7 @@ organization := "com.vmunier"
 
 homepage := Some(url("https://github.com/vmunier/scalajs-scripts"))
 
-scalaVersion := "2.13.2"
+scalaVersion := "2.13.6"
 
 crossScalaVersions := Seq("2.12.11", scalaVersion.value)
 
