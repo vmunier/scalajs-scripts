@@ -115,6 +115,4 @@ The `raw` function in ScalaTags allows you to embed raw HTML in the tag and call
 
 ## Publish a new version of the library
 
-```
-$ sbt +publishSigned
-```
+New versions are automatically published to Sonatype when creating a git tag, thanks to [sbt-ci-release](https://github.com/olafurpg/sbt-ci-release).
