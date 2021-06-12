@@ -6,8 +6,7 @@
 
 @defining(s"${projectName.toLowerCase}") { name =>
   @{
-    val possibleBuildArtifactSuffixes = Seq("opt-bundle", "fastopt-bundle", "opt", "fastopt")
-    possibleBuildArtifactSuffixes.map(suffix => s"$name-$suffix.js")
-      .find(resourceExists).map(filename => jsScript(assets(filename), htmlAttributes))
+    val possibleArtifacts = Seq(s"$name-opt-bundle.js", s"$name-fastopt-bundle.js", s"$name-opt/main.js", s"$name-fastopt/main.js")
+    possibleArtifacts.find(resourceExists).map(filename => jsScript(assets(filename), htmlAttributes))
   }
 }
