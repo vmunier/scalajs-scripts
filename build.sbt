@@ -15,7 +15,7 @@ inThisBuild(List(
 
 name := "scalajs-scripts"
 scalaVersion := "2.13.8"
-crossScalaVersions := Seq("2.12.15", scalaVersion.value)
+crossScalaVersions := Seq("2.12.17", scalaVersion.value)
 
 enablePlugins(SbtTwirl)
 
