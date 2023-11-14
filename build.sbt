@@ -14,15 +14,14 @@ inThisBuild(List(
 ))
 
 name := "scalajs-scripts"
-scalaVersion := "2.13.12"
-crossScalaVersions := Seq("2.12.18", scalaVersion.value)
+scalaVersion := "3.3.1"
+crossScalaVersions := Seq("2.13.12", scalaVersion.value)
 
 enablePlugins(SbtTwirl)
 
-scalacOptions ++= Seq(
-  "-encoding", "utf8",
-  "-deprecation", "-feature", "-unchecked", "-Xlint",
-  "-Ywarn-dead-code",
-  "-Ywarn-numeric-widen",
-  "-Ywarn-value-discard"
-)
+scalacOptions ++= Seq("-encoding", "utf8", "-deprecation", "-feature", "-unchecked")
+
+libraryDependencies ++= (CrossVersion.partialVersion(scalaVersion.value) match {
+  case Some((3, _)) => Seq()
+  case _            => Seq("org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided")
+})
