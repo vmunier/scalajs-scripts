@@ -11,7 +11,7 @@ standard scala string interpolation.
 
 Add the library to `build.sbt`:
 ```
-libraryDependencies += "com.vmunier" %% "scalajs-scripts" % "1.2.0"
+libraryDependencies += "com.vmunier" %% "scalajs-scripts" % "1.3.0"
 ```
 
 ## Integration with Twirl
